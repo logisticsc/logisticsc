@@ -1,7 +1,7 @@
 $apiToken = "5557966069:AAGvhAwYnmlkL0_zw00mU3N0Dlin21hCrVU";
 
 $data = [
-    'chat_id' => '@scarfazebase',
+    'chat_id' => '@+SB38yVCri2AxZmM0',
     'text' => 'Hello world!'
 ];
 
